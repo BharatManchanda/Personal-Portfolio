@@ -3,10 +3,7 @@ import { Box, Button, Typography, IconButton, Tooltip, Grid2 as Grid } from "@mu
 import styled from "@emotion/styled";
 import CallMadeIcon from '@mui/icons-material/CallMade';
 
-const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-
 export default function Home() {
-	
 	return (
 		<>
 			<Grid container spacing={0}  py={7}>
