@@ -109,7 +109,8 @@ export default function Home() {
 				</Grid>
 				<Grid size={{lg:6, xs:12}}>
 					<Box className="relative mt-6" sx={{
-						height: {xs: '300px'}
+						height: {xs: '300px'},
+						right: {xs: '27px', md: '0px'}
 					}}>
 						<Box className="w-20 h-20 rounded-full absolute" sx={{
 							zIndex: "3 !important",
