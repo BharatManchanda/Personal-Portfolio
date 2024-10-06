@@ -1,27 +1,30 @@
 "use client";
 import { Box, Button, IconButton, Tooltip, Typography } from '@mui/material'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import Dot from '../../Singleton/Icons/Dot'
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import styled from '@emotion/styled';
 
-const MenuButton = styled(Button)({
+const MenuButton = styled(Button)(({ mode }) => ({
 	padding: 8,
 	borderRadius: 4,
 	fontWeight: 'medium',
 	fontSize: '16px',
-	// color: isDarkMode ? '#fff' : '#000',
-	textTranform: 'capitalize !important',
+	color: '#000',
+	textTransform: 'capitalize !important',
+	fontWeight: 'medium',
+	color: mode === 'dark' ? '#fff' : '#000',
 	"&:hover": {
 		background: 'none'
 	}
-});
+}));
 
 export const Header = ({
     mode,
     setMode
 }) => {
+
 	useEffect(() => {
 		const savedTheme = localStorage.getItem('theme');
 		if (savedTheme) {
@@ -54,9 +57,9 @@ export const Header = ({
 					</Typography>
 					<Dot style={{marginTop: "27px", marginLeft: "5px"}} />
 				</Box>
-				<Box>
+				<Box display={{xs:"none"}}>
 					{["Home", "Works", "About", "Projects", "Services"].map((menu, key) => (
-						<MenuButton sx={{mr: '50px'}} size="small" key={key}>
+						<MenuButton mode={mode} sx={{mr: '50px'}} size="small" key={key}>
 							{menu}
 						</MenuButton>
 					))}
