@@ -57,7 +57,7 @@ export const Header = ({
 					</Typography>
 					<Dot style={{marginTop: "27px", marginLeft: "5px"}} />
 				</Box>
-				<Box display={{xs:"none"}}>
+				<Box display={{xs:"none", md:'block'}}>
 					{["Home", "Works", "About", "Projects", "Services"].map((menu, key) => (
 						<MenuButton mode={mode} sx={{mr: '50px'}} size="small" key={key}>
 							{menu}

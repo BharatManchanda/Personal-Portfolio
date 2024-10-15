@@ -26,8 +26,13 @@ const lightTheme = createTheme({
     },
 });
 
-const darkTheme  =  {
+const darkTheme  =  createTheme({
     palette: {
+        mode: 'dark',
+        background: {
+            default: '#0A0A0A', // Dark background color
+            paper: '#121212', // Paper background color in dark mode
+        },
         red:{
             main:'#ff0000',
             light: '#ff0000',
@@ -48,6 +53,6 @@ const darkTheme  =  {
             white: '#fff'
         }
     }
-}
+})
 
 export {lightTheme, darkTheme};

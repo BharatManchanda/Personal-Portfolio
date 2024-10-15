@@ -1,13 +1,14 @@
 'use client'
-import { Box, Button, Typography, Grid2 as Grid } from "@mui/material";
+import { Box, Button, Typography, Grid2 as Grid, TextField, Paper, useTheme } from "@mui/material";
 import CallMadeIcon from '@mui/icons-material/CallMade';
-import { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Image from "next/image";
 import Profile from "../app/assets/images/profile.jpg"
 import { MainHeading } from "./Common/Singleton/MainHeading";
 import { AppContext } from "./layout";
-import { Languages, projects } from "./Constants";
+import { contact, Languages, projects } from "./Constants";
 import Project from "./Components/Project";
+import { ThemeColor } from "./Theme/ThemeColor";
 
 const gradientBorderColor = {
 	borderImage: "linear-gradient(to right, #ff0000, #0000ff) 1",
@@ -19,6 +20,7 @@ const gradientBorderColor = {
 export default function Home() {
 	const textArray = ['Bharat Manchanda', "Laravel Developer", "React Developer", "PHP Developer"];
 	const {mode} = useContext(AppContext);
+	const theme = useTheme();
 	
 	const [textIndex, setTextIndex] = useState(0);
 	const [charIndex, setCharIndex] = useState(0);
@@ -110,7 +112,7 @@ export default function Home() {
 				<Grid size={{lg:6, xs:12}}>
 					<Box className="relative mt-6" sx={{
 						height: {xs: '300px'},
-						right: {xs: '27px', md: '0px'}
+						right: {xs: '35px', md: '0px'}
 					}}>
 						<Box className="w-20 h-20 rounded-full absolute" sx={{
 							zIndex: "3 !important",
@@ -139,7 +141,7 @@ export default function Home() {
 
 			<MainHeading label={'About Me'} />
 
-			<Grid container mt={3}>
+			<Grid container mt={3} spacing={3}>
 				<Grid size={{lg:6, xs:12}}>
 					<Typography variant="h5" gutterBottom fontWeight={'bold'}>
 						Get to know me!
@@ -158,9 +160,9 @@ export default function Home() {
 					<Typography variant="h5" gutterBottom fontWeight={'bold'}>
 						My Skills
 					</Typography>
-					<Box className="md:w-[400px]">
-						{Languages.map((coding) => (
-							<Button variant="contained" color="#000" sx={{
+					<Box className="">
+						{Languages.map((coding, key) => (
+							<Button key={key} variant="contained" color="#000" sx={{
 								mr:2, mb:2,
 								fontWeight: "bold",
 								textTransform: 'capitalize',
@@ -179,9 +181,65 @@ export default function Home() {
 
 			<MainHeading label={'Projects'} />
 			<Grid container mt={4} spacing={3}>
-				{projects.map((project, key) => (<>
+				{projects.map((project, key) => (<React.Fragment key={key}>
 					<Project project={project} count={key+1} />
-				</>))}
+				</React.Fragment>))}
+			</Grid>
+
+			<MainHeading label={'Contact Me'} />
+			<Grid container my={4} spacing={3}>
+				<Grid size={{lg:6, xs:12}}>
+					<Typography variant="h6" fontSize={'28px'} fontWeight={'bold'} gutterBottom>
+						Drop me a Message
+					</Typography>
+					<Typography variant="body1" mb={3}>
+						Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+					</Typography>
+					{contact.map((item, key) => (
+						<Box className="flex items-center gap-2 mb-2" key={key}>
+							{item.icon}
+							<Typography variant="body1" {...item.props}>
+								{item.label}
+							</Typography>
+						</Box>
+					))}
+				</Grid>
+				<Grid size={{lg:6, xs:12}}>
+					<Paper elevation={2} sx={{
+						p:2,
+						// background: mode == "dark" ? ThemeColor[mode].background : "",
+						".MuiFormControl-root": {
+							mb:3,
+						}
+					}} className="rounded-lg">
+						<TextField
+							fullWidth
+							label="Name"
+							// value={""}
+							// onChange={}
+						/>
+						<TextField
+							fullWidth
+							label="Email"
+							// value={""}
+							// onChange={}
+						/>
+						<TextField
+							fullWidth
+							label="Type Your Message"
+							// value={""}
+							// onChange={}
+						/>
+						<TextField
+							label="Enter your text"
+							variant="outlined"
+							fullWidth
+						/>
+						<Button variant="contained" color="red" size="large">
+							Send
+						</Button>
+					</Paper>
+				</Grid>
 			</Grid>
 		</>
 	);
