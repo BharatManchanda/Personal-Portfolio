@@ -56,6 +56,12 @@ export const contact = [
     }
 ];
 
+export const initContactUs  = {
+    name: "",
+    email: "",
+    messsage: "",
+}
+
 export const Languages = [
     "HTML",
     "CSS",

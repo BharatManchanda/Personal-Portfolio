@@ -1,35 +1,37 @@
 'use client'
-import { Box, Button, Typography, Grid2 as Grid, TextField, Paper, useTheme } from "@mui/material";
+import { Box, Button, Typography, Grid2 as Grid, TextField, Paper } from "@mui/material";
 import CallMadeIcon from '@mui/icons-material/CallMade';
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext, useMemo } from "react";
 import Image from "next/image";
 import Profile from "../app/assets/images/profile.jpg"
 import { MainHeading } from "./Common/Singleton/MainHeading";
-import { AppContext } from "./layout";
-import { contact, Languages, projects } from "./Constants";
+import { contact, initContactUs, Languages, projects } from "./Constants";
 import Project from "./Components/Project";
-import { ThemeColor } from "./Theme/ThemeColor";
+import { useTheme } from '@mui/material/styles';
 
-const gradientBorderColor = {
-	borderImage: "linear-gradient(to right, #ff0000, #0000ff) 1",
-	background: 'linear-gradient(45deg, red, blue)',
-	WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-	maskComposite: 'exclude',
-}
 
 export default function Home() {
-	const textArray = ['Bharat Manchanda', "Laravel Developer", "React Developer", "PHP Developer"];
-	const {mode} = useContext(AppContext);
 	const theme = useTheme();
+	const [contactUs, setContactUs] = useState({...initContactUs});
+	const textArray = ['Bharat Manchanda', "Laravel Developer", "React Developer", "PHP Developer"];
 	
 	const [textIndex, setTextIndex] = useState(0);
 	const [charIndex, setCharIndex] = useState(0);
 	const [isDeleting, setIsDeleting] = useState(false);
 	const [currentText, setCurrentText] = useState('');
-
+	
+	
+	const gradientBorderColor = useMemo(function () {
+		return {
+			borderImage: `linear-gradient(to right, ${theme.palette.primary.main}, ${theme.palette.secondary.main}) 1`,
+			background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
+			WebkitMask: `linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)`,
+			maskComposite: 'exclude',
+		}
+	}, []);
 
 	useEffect(() => {
-		const delay = isDeleting ? 100 : 150;
+		const delay = isDeleting ? 5 : 10;
 	
 		const typeEffect = () => {
 		const fullText = textArray[textIndex];
@@ -52,6 +54,13 @@ export default function Home() {
 		return () => clearTimeout(timer); // Cleanup timeout on unmount
 	}, [charIndex, isDeleting, textArray, textIndex]);
 
+	const handleContactUsChange  = (key, value)  => {
+		setContactUs({
+			...contactUs,
+			[key]: value,
+		});
+	}
+
 	
 	return (
 		<>
@@ -59,7 +68,7 @@ export default function Home() {
 				<Grid size={{lg:6, xs:12}}>
 					<Typography variant="h4" fontWeight={'bold'} mt={2}>
 						Hi I Am <br />
-						<Typography variant="h4" component={'span'} fontWeight={'bold'} sx={{
+						<Typography variant="h4" color="primary" component={'span'} fontWeight={'bold'} sx={{
 							borderRight: "2px solid",
 							whiteSpace: "nowrap",
 						}}>
@@ -71,7 +80,9 @@ export default function Home() {
 					</Typography>
 
 					<Box className="flex gap-4" mt={2}>
-						<Button variant="contained" color="red" className="capitalize" size="large">
+						<Button variant="contained" color="primary" className="capitalize" size="large" sx={{
+							// background: "linear-gradient(100deg, #ff0000, #0000ff)",
+						}}>
 							Download CV
 						</Button>
 						<Button variant="text" color="black" className="capitalize" size="large" endIcon={<CallMadeIcon/>}
@@ -116,7 +127,7 @@ export default function Home() {
 					}}>
 						<Box className="w-20 h-20 rounded-full absolute" sx={{
 							zIndex: "3 !important",
-							background: 'linear-gradient(45deg, red, blue)',
+							background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
 							right: '0%',
 							top: '110px',
 						}}></Box>
@@ -168,6 +179,7 @@ export default function Home() {
 								textTransform: 'capitalize',
 								background:"#D9D9D9",
 								boxShadow: "none",
+								color: "black",
 								":hover": {
 									boxShadow: "none"
 								}
@@ -182,65 +194,59 @@ export default function Home() {
 			<MainHeading label={'Projects'} />
 			<Grid container mt={4} spacing={3}>
 				{projects.map((project, key) => (<React.Fragment key={key}>
-					<Project project={project} count={key+1} />
+					<Project project={project} count={key+1} gradientBorderColor={gradientBorderColor}/>
 				</React.Fragment>))}
 			</Grid>
 
-			<MainHeading label={'Contact Me'} />
-			<Grid container my={4} spacing={3}>
-				<Grid size={{lg:6, xs:12}}>
-					<Typography variant="h6" fontSize={'28px'} fontWeight={'bold'} gutterBottom>
-						Drop me a Message
-					</Typography>
-					<Typography variant="body1" mb={3}>
-						Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-					</Typography>
-					{contact.map((item, key) => (
-						<Box className="flex items-center gap-2 mb-2" key={key}>
-							{item.icon}
-							<Typography variant="body1" {...item.props}>
-								{item.label}
-							</Typography>
-						</Box>
-					))}
+				<MainHeading label={'Contact Me'} />
+				<Grid container my={4} spacing={3}>
+					<Grid size={{lg:6, xs:12}}>
+						<Typography variant="h6" fontSize={'28px'} fontWeight={'bold'} gutterBottom>
+							Drop me a Message
+						</Typography>
+						<Typography variant="body1" mb={3}>
+							Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+						</Typography>
+						{contact.map((item, key) => (
+							<Box className="flex items-center gap-2 mb-2" key={key}>
+								{item.icon}
+								<Typography variant="body1" {...item.props}>
+									{item.label}
+								</Typography>
+							</Box>
+						))}
+					</Grid>
+					<Grid size={{lg:6, xs:12}}>
+						<Paper elevation={2} sx={{
+							p:2,
+							".MuiFormControl-root": {
+								mb:3,
+							}
+						}} className="rounded-lg">
+							<TextField
+								fullWidth
+								label="Name"
+								value={contactUs.name}
+								onChange={(e) => handleContactUsChange("name", e.target.value)}
+							/>
+							<TextField
+								fullWidth
+								label="Emai"
+								value={contactUs.email}
+								onChange={(e) => handleContactUsChange("email", e.target.value)}
+							/>
+							<TextField
+								fullWidth
+								label="Type Your Message"
+								value={contactUs.messsage}
+								onChange={(e) => handleContactUsChange("messsage", e.target.value)}
+							/>
+							<Button variant="contained" color="primary" size="large">
+								Send
+							</Button>
+						</Paper>
+					</Grid>
 				</Grid>
-				<Grid size={{lg:6, xs:12}}>
-					<Paper elevation={2} sx={{
-						p:2,
-						// background: mode == "dark" ? ThemeColor[mode].background : "",
-						".MuiFormControl-root": {
-							mb:3,
-						}
-					}} className="rounded-lg">
-						<TextField
-							fullWidth
-							label="Name"
-							// value={""}
-							// onChange={}
-						/>
-						<TextField
-							fullWidth
-							label="Email"
-							// value={""}
-							// onChange={}
-						/>
-						<TextField
-							fullWidth
-							label="Type Your Message"
-							// value={""}
-							// onChange={}
-						/>
-						<TextField
-							label="Enter your text"
-							variant="outlined"
-							fullWidth
-						/>
-						<Button variant="contained" color="red" size="large">
-							Send
-						</Button>
-					</Paper>
-				</Grid>
-			</Grid>
 		</>
 	);
 }

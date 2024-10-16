@@ -1,6 +1,9 @@
+"use client";
 import React from 'react'
+import { useTheme } from "@mui/material";
 
 const Location = () => {
+    const theme = useTheme();
     return (
         <>
             <svg width="49" height="49" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -9,8 +12,8 @@ const Location = () => {
                 <path d="M24.5 24.5C26.1109 24.5 27.4166 23.1942 27.4166 21.5833C27.4166 19.9725 26.1109 18.6666 24.5 18.6666C22.8891 18.6666 21.5833 19.9725 21.5833 21.5833C21.5833 23.1942 22.8891 24.5 24.5 24.5Z" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
                 <defs>
                     <linearGradient id="paint0_linear_83_6" x1="24.5" y1="0" x2="24.5" y2="49" gradientUnits="userSpaceOnUse">
-                        <stop stopColor="#FF0000"/>
-                        <stop offset="1" stopColor="#0000FF"/>
+                        <stop stopColor={`${theme.palette.primary.main}`} />
+                        <stop offset="1" stopColor={`${theme.palette.secondary.main}`}/>
                     </linearGradient>
                 </defs>
             </svg>

@@ -69,8 +69,10 @@ export const Header = ({
 						Let's Chat
 					</Button>
 					<Tooltip title={mode == "dark" ? "Light Mode" : "Dark Mode"}>
-						<IconButton variant="outlined" color="red" className="capitalize" onClick={togggleDarkMode}>
-							{mode == "dark" ? <LightModeIcon /> : <DarkModeIcon />}
+						<IconButton variant="outlined" color="primary" className="capitalize" onClick={togggleDarkMode} sx={{
+							// color: "linear-gradient(100deg, #ff0000, #0000ff)",
+						}}>
+							{mode == "dark" ? <LightModeIcon sx={{color: "linear-gradient(100deg, #ff0000, #0000ff)"}} /> : <DarkModeIcon />}
 						</IconButton>
 					</Tooltip>
 				</Box>
