@@ -5,6 +5,8 @@ import Dot from '../../Singleton/Icons/Dot'
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import styled from '@emotion/styled';
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 
 const MenuButton = styled(Button)(({ mode }) => ({
 	padding: 8,
@@ -24,7 +26,8 @@ export const Header = ({
     mode,
     setMode
 }) => {
-
+	const pathname = usePathname();
+	
 	useEffect(() => {
 		const savedTheme = localStorage.getItem('theme');
 		if (savedTheme) {
@@ -58,11 +61,16 @@ export const Header = ({
 					<Dot style={{marginTop: "27px", marginLeft: "5px"}} />
 				</Box>
 				<Box display={{xs:"none", md:'block'}}>
-					{["Home", "Works", "About", "Projects", "Services"].map((menu, key) => (
-						<MenuButton mode={mode} sx={{mr: '50px'}} size="small" key={key}>
-							{menu}
-						</MenuButton>
-					))}
+					{["Home", "Blog", "About", "Projects", "Contact Me"].map((menu, key) => (<MenuButton
+						key={key}
+						component={Link}
+						href={menu == "Home" ? "/" : menu.toLowerCase()}
+						mode={mode}
+						sx={{mr: '20px'}}
+						size="small"
+					>
+						{menu}
+					</MenuButton>))}
 				</Box>
 				<Box className="flex gap-2">
 					<Button variant="outlined" color="black" className="capitalize">
