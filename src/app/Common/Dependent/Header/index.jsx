@@ -55,7 +55,7 @@ export const Header = ({
         <>
             <Box className="flex justify-between items-center">
 				<Box className="flex">
-					<Typography variant="h4" fontWeight={'bold'}>
+					<Typography component={Link} href="/" variant="h4" fontWeight={'bold'}>
 						Bharat
 					</Typography>
 					<Dot style={{marginTop: "27px", marginLeft: "5px"}} />
@@ -63,7 +63,7 @@ export const Header = ({
 				<Box display={{xs:"none", md:'block'}}>
 					{["Home", "Blog", "About", "Projects", "Contact Me"].map((menu, key) => (<MenuButton
 						key={key}
-						component={Link}
+						component={Link}	
 						href={menu == "Home" ? "/" : menu.toLowerCase()}
 						mode={mode}
 						sx={{mr: '20px'}}

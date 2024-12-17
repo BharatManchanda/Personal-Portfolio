@@ -34,7 +34,7 @@ const Footer = () => {
                     <Box className="flex md:justify-end justify-center gap-2" mb={1}>
                         <MailOutlinedIcon color='white'/>
                         <Typography variant="body1" color="#fff">
-                            contactme@bharat.com
+                            bharatmanchanda13@gmail.com
                         </Typography>
                     </Box>
                     <Box className="flex md:justify-end justify-center gap-2"  mb={1}>

@@ -1,13 +1,15 @@
 'use client'
 import { Box, Button, Typography, Grid2 as Grid, TextField, Paper } from "@mui/material";
 import CallMadeIcon from '@mui/icons-material/CallMade';
-import React, { useEffect, useState, useContext, useMemo } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import Image from "next/image";
 import Profile from "../app/assets/images/profile.jpg"
 import { MainHeading } from "./Common/Singleton/MainHeading";
 import { contact, initContactUs, Languages, projects } from "./Constants";
 import Project from "./Components/Project";
 import { useTheme } from '@mui/material/styles';
+import { api } from "./Constants/api";
+import { toast } from "react-toastify";
 
 
 export default function Home() {
@@ -29,6 +31,16 @@ export default function Home() {
 			maskComposite: 'exclude',
 		}
 	}, []);
+
+	const handleContactUsSubmit = (e) => {
+		e.preventDefault();
+		api.contact_us(contactUs).then((response) => {
+			toast.success("Form Submited succeessfully!");
+			setContactUs({...initContactUs})
+		}).catch((error) => {
+			toast.error(error);
+		})
+	}
 
 	useEffect(() => {
 		const delay = isDeleting ? 5 : 10;
@@ -80,9 +92,18 @@ export default function Home() {
 					</Typography>
 
 					<Box className="flex gap-4" mt={2}>
-						<Button variant="contained" color="primary" className="capitalize" size="large" sx={{
-							// background: "linear-gradient(100deg, #ff0000, #0000ff)",
-						}}>
+						<Button
+							variant="contained"
+							color="primary"
+							className="capitalize animate__fadeInDown"
+							size="large"
+							component="a"
+							href="./resume/bharat-resume.pdf"
+							download
+							sx={{
+								// background: "linear-gradient(100deg, #ff0000, #0000ff)",
+							}}
+						>
 							Download CV
 						</Button>
 						<Button variant="text" color="black" className="capitalize" size="large" endIcon={<CallMadeIcon/>}
@@ -198,55 +219,57 @@ export default function Home() {
 				</React.Fragment>))}
 			</Grid>
 
-				<MainHeading label={'Contact Me'} />
-				<Grid container my={4} spacing={3}>
-					<Grid size={{lg:6, xs:12}}>
-						<Typography variant="h6" fontSize={'28px'} fontWeight={'bold'} gutterBottom>
-							Drop me a Message
-						</Typography>
-						<Typography variant="body1" mb={3}>
-							Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-						</Typography>
-						{contact.map((item, key) => (
-							<Box className="flex items-center gap-2 mb-2" key={key}>
-								{item.icon}
-								<Typography variant="body1" {...item.props}>
-									{item.label}
-								</Typography>
-							</Box>
-						))}
-					</Grid>
-					<Grid size={{lg:6, xs:12}}>
-						<Paper elevation={2} sx={{
-							p:2,
-							".MuiFormControl-root": {
-								mb:3,
-							}
-						}} className="rounded-lg">
-							<TextField
-								fullWidth
-								label="Name"
-								value={contactUs.name}
-								onChange={(e) => handleContactUsChange("name", e.target.value)}
-							/>
-							<TextField
-								fullWidth
-								label="Emai"
-								value={contactUs.email}
-								onChange={(e) => handleContactUsChange("email", e.target.value)}
-							/>
-							<TextField
-								fullWidth
-								label="Type Your Message"
-								value={contactUs.messsage}
-								onChange={(e) => handleContactUsChange("messsage", e.target.value)}
-							/>
-							<Button variant="contained" color="primary" size="large">
-								Send
-							</Button>
-						</Paper>
-					</Grid>
+			<MainHeading label={'Contact Me'} />
+			<Grid container my={4} spacing={3}>
+				<Grid size={{lg:6, xs:12}}>
+					<Typography variant="h6" fontSize={'28px'} fontWeight={'bold'} gutterBottom>
+						Drop me a Message
+					</Typography>
+					<Typography variant="body1" mb={3}>
+						Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+					</Typography>
+					{contact.map((item, key) => (
+						<Box className="flex items-center gap-2 mb-2" key={key}>
+							{item.icon}
+							<Typography variant="body1" {...item.props}>
+								{item.label}
+							</Typography>
+						</Box>
+					))}
 				</Grid>
+				
+				<Grid size={{lg:6, xs:12}}>
+					<Paper elevation={2} component="form" onSubmit={handleContactUsSubmit} method="POST" sx={{
+						p:2,
+						".MuiFormControl-root": {
+							mb:3,
+						}
+					}} className="rounded-lg">
+						<input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
+						<TextField
+							fullWidth
+							label="Name"
+							value={contactUs.name}
+							onChange={(e) => handleContactUsChange("name", e.target.value)}
+						/>
+						<TextField
+							fullWidth
+							label="Emai"
+							value={contactUs.email}
+							onChange={(e) => handleContactUsChange("email", e.target.value)}
+						/>
+						<TextField
+							fullWidth
+							label="Type Your Message"
+							value={contactUs.messsage}
+							onChange={(e) => handleContactUsChange("messsage", e.target.value)}
+						/>
+						<Button type="submit" variant="contained" color="primary" size="large">
+							Send
+						</Button>
+					</Paper>
+				</Grid>
+			</Grid>
 		</>
 	);
 }

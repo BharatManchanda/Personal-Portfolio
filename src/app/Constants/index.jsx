@@ -9,19 +9,19 @@ export const projects = [
     {
         id: 1,
         image: Project1,
-        title: 'Dating Website Design',
+        title: 'Pronto Case Cash',
         description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
     },
     {
         id: 2,
         image: Project2,
-        title: 'Ecommerce Website Design',
+        title: 'A1 Residential Builders',
         description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
     },
     {
         id: 3,
         image: Project3,
-        title: 'Dating Website Design',
+        title: 'We are appointments',
         description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
     },
 ];
@@ -31,7 +31,6 @@ export const contact = [
         id: 1,
         icon: <Location />,
         label: 'Urlana Kalan, Panipat - 132103',
-        // type: 'address',
         props:{
             href:"https://www.google.com/maps?q=37.7749,-122.4194",
             target:"_blank",
@@ -41,7 +40,6 @@ export const contact = [
         id: 2,
         icon: <Whatsapp />,
         label: '+91 7777-004907',
-        // type: 'phone',
         props: {
             component:'a',
             href:"tel:7777-004907"
@@ -51,7 +49,6 @@ export const contact = [
         id: 3,
         icon: <Email />,
         label: 'bharatmanchanda13@gmail.com',
-        // type: 'email',
         props:{}
     }
 ];
@@ -60,6 +57,7 @@ export const initContactUs  = {
     name: "",
     email: "",
     messsage: "",
+    access_key: process.env.NEXT_PUBLIC_API_URL,
 }
 
 export const Languages = [

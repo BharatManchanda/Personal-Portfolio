@@ -2,6 +2,8 @@ import React from 'react'
 import Image from 'next/image';
 import { Box, Button, Divider, Grid2 as Grid, Typography } from '@mui/material';
 import BreakpointDetector from '@/app/Common/Singleton/Breakpoint';
+// import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
+import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 
 const Project = ({project, count, gradientBorderColor}) => {
     const {title, description, image} = project;
@@ -38,9 +40,9 @@ const Project = ({project, count, gradientBorderColor}) => {
                         fontWeight: 'bold',
                         ml: '-8px',
                     }}
+                    endIcon={<KeyboardDoubleArrowRightIcon />}
                 >
-                    Read More
-                </Button>
+                    Read More</Button>
             </Grid>
             {(count % 2 == 0 && BreakpointDetector() != 'sm') && <Grid size={{lg:6, xs:12}} mb={3}>
 				<Box className="flex justify-end relative lg:pl-[24px] h-[250px] w-full">
