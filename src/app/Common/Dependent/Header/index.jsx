@@ -8,25 +8,32 @@ import styled from '@emotion/styled';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 
-const MenuButton = styled(Button)(({ mode }) => ({
-	padding: 8,
-	borderRadius: 4,
-	fontWeight: 'medium',
-	fontSize: '16px',
-	color: '#000',
-	textTransform: 'capitalize !important',
-	fontWeight: 'medium',
-	color: mode === 'dark' ? '#fff' : '#000',
-	"&:hover": {
-		background: 'none'
+const MenuButton = styled(Button)(({ mode, active }) => {
+	
+	return {
+		padding: 8,
+		borderRadius: 4,
+		fontWeight: 'medium',
+		fontSize: '16px',
+		color: '#000',
+		textTransform: 'capitalize !important',
+		fontWeight: 'medium',
+		color: mode === 'dark' ? '#fff' : '#000',
+		mr: 5,
+		background: active ? (mode === 'dark' ? "#6f6f6f" : "#f5f5f0") : "",
+		height: '34px',
+		"&:hover": {
+			background: 'none'
+		}
 	}
-}));
+});
 
 export const Header = ({
     mode,
     setMode
 }) => {
 	const pathname = usePathname();
+	console.log(pathname,"pathname");
 	
 	useEffect(() => {
 		const savedTheme = localStorage.getItem('theme');
@@ -64,10 +71,11 @@ export const Header = ({
 					{["Home", "Blog", "About", "Projects", "Contact Me"].map((menu, key) => (<MenuButton
 						key={key}
 						component={Link}	
-						href={menu == "Home" ? "/" : menu.toLowerCase()}
+						href={menu == "Home" ? "/" : menu.toLowerCase().replaceAll(" ","-")}
 						mode={mode}
-						sx={{mr: '20px'}}
+						sx={{mr:2.5}}
 						size="small"
+						active={(menu === "Home" && pathname === "/") || menu.toLowerCase().replaceAll(" ", "-") === pathname.replaceAll("/", "")} 
 					>
 						{menu}
 					</MenuButton>))}

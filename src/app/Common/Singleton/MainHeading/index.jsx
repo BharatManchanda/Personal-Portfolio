@@ -7,7 +7,7 @@ export const MainHeading = ({label}) => {
 	const theme = useTheme();
     return (<>
         <Box className="flex flex-col justify-center items-center">
-            <Typography fontSize={"40px"} fontWeight={'bold'} mb={1}>
+            <Typography fontSize={"40px"} fontWeight={'bold'} mt={4} mb={1}>
                 {label}
             </Typography>
             <Typography className="rounded relative" sx={{

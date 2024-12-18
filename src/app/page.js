@@ -10,11 +10,14 @@ import Project from "./Components/Project";
 import { useTheme } from '@mui/material/styles';
 import { api } from "./Constants/api";
 import { toast } from "react-toastify";
-
+import LoadingButton from '@mui/lab/LoadingButton';
+import SaveIcon from '@mui/icons-material/Save';
+import SendIcon from '@mui/icons-material/Send';
 
 export default function Home() {
 	const theme = useTheme();
 	const [contactUs, setContactUs] = useState({...initContactUs});
+	const [loading, setLoading] = useState(false);
 	const textArray = ['Bharat Manchanda', "Laravel Developer", "React Developer", "PHP Developer"];
 	
 	const [textIndex, setTextIndex] = useState(0);
@@ -34,11 +37,14 @@ export default function Home() {
 
 	const handleContactUsSubmit = (e) => {
 		e.preventDefault();
+		setLoading(true)
 		api.contact_us(contactUs).then((response) => {
 			toast.success("Form Submited succeessfully!");
 			setContactUs({...initContactUs})
+			setLoading(false)
 		}).catch((error) => {
 			toast.error(error);
+			setLoading(false)
 		})
 	}
 
@@ -260,13 +266,24 @@ export default function Home() {
 						/>
 						<TextField
 							fullWidth
+							multiline rows={2}
 							label="Type Your Message"
 							value={contactUs.messsage}
 							onChange={(e) => handleContactUsChange("messsage", e.target.value)}
 						/>
-						<Button type="submit" variant="contained" color="primary" size="large">
+						<LoadingButton
+							type="submit"
+							loading={loading}
+							loadingPosition="start"
+							startIcon={loading ? <SendIcon /> : null}
+							variant="contained"
+							color="primary"
+							sx={{
+								textTransform: "capitalize"
+							}}
+						>
 							Send
-						</Button>
+						</LoadingButton>
 					</Paper>
 				</Grid>
 			</Grid>
