@@ -1,6 +1,10 @@
 import Project1 from "../assets/images/Projects/project-1.jpg";
 import Project2 from "../assets/images/Projects/project-2.jpg";
 import Project3 from "../assets/images/Projects/project-3.jpg";
+import Project4 from "../assets/images/Projects/project-4.jpg";
+import Project5 from "../assets/images/Projects/project-5.jpg";
+import Project6 from "../assets/images/Projects/project-6.jpg";
+import Project7 from "../assets/images/Projects/project-7.jpg";
 import Email from "../Common/Singleton/Icons/Email";
 import Location from "../Common/Singleton/Icons/Location";
 import Whatsapp from "../Common/Singleton/Icons/Whatsapp";
@@ -15,13 +19,37 @@ export const projects = [
     {
         id: 2,
         image: Project2,
-        title: 'A1 Residential Builders',
+        title: 'Construction Button',
         description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
     },
     {
         id: 3,
         image: Project3,
         title: 'We are appointments',
+        description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+    },
+    {
+        id: 4,
+        image: Project4,
+        title: 'Day One Development',
+        description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+    },
+    {
+        id: 5,
+        image: Project5,
+        title: 'Abatement and Remediation',
+        description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+    },
+    {
+        id: 6,
+        image: Project6,
+        title: 'Gobbler AI',
+        description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+    },
+    {
+        id: 7,
+        image: Project7,
+        title: 'ChirpChat',
         description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
     },
 ];

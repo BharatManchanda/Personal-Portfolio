@@ -9,7 +9,7 @@ const Project = ({project, count, gradientBorderColor}) => {
     const {title, description, image} = project;
     return (
         <>
-            {(count%2 != 0 || BreakpointDetector() == 'sm') && <Grid size={{lg:6, xs:12}} mb={{lg:3}}>
+            {(count%2 != 0 || BreakpointDetector() == 'sm') && <Grid size={{lg:6, xs:12}} mb={{lg:6}}>
 				<Box className="relative lg:px-[24px] md:h-[250px] h-[200px] w-full">
                     <Box className="hidden md:block md:w-[400px] w-full md:h-[250px] h-[200px] border-4 rounded-md absolute left-0 top-6" sx={{
                         ...gradientBorderColor
@@ -24,9 +24,9 @@ const Project = ({project, count, gradientBorderColor}) => {
                 </Box>
             </Grid>}
             <Grid mb={3} size={{lg:6, xs:12}}>
-                <Typography variant="h5" fontWeight={'bold'} gutterBottom>
+                {/* <Typography variant="h5" fontWeight={'bold'} gutterBottom>
                     Project {count}
-                </Typography>
+                </Typography> */}
                 <Typography variant="h6" gutterBottom>
                     {title}
                 </Typography>
@@ -44,7 +44,7 @@ const Project = ({project, count, gradientBorderColor}) => {
                 >
                     Read More</Button>
             </Grid>
-            {(count % 2 == 0 && BreakpointDetector() != 'sm') && <Grid size={{lg:6, xs:12}} mb={3}>
+            {(count % 2 == 0 && BreakpointDetector() != 'sm') && <Grid size={{lg:6, xs:12}} mb={6}>
 				<Box className="flex justify-end relative lg:pl-[24px] h-[250px] w-full">
                     <Box className="hidden md:block md:w-[400px] w-full md:h-[250px] h-[200px] border-4 rounded-md absolute right-6 top-6" sx={{
                         ...gradientBorderColor

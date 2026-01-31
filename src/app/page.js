@@ -18,7 +18,7 @@ export default function Home() {
 	const theme = useTheme();
 	const [contactUs, setContactUs] = useState({...initContactUs});
 	const [loading, setLoading] = useState(false);
-	const textArray = ['Bharat Manchanda', "Laravel Developer", "React Developer", "PHP Developer"];
+	const textArray = ['Bharat Manchanda', "Laravel Developer", "React Developer", "PHP Developer", "Mern Stack Developer"];
 	
 	const [textIndex, setTextIndex] = useState(0);
 	const [charIndex, setCharIndex] = useState(0);
@@ -94,7 +94,7 @@ export default function Home() {
 						</Typography>
 					</Typography>
 					<Typography variant="body1" mt={2}>
-						Designing & Developing full stack applications for over 1.5 years as a full stack developer.
+						Designing & Developing full stack applications for over 2.5 years as a full stack developer.
 					</Typography>
 
 					<Box className="flex gap-4" mt={2}>
@@ -121,7 +121,7 @@ export default function Home() {
 					<Box mt={2}>
 						<Box>
 							<Typography variant="body1" fontSize={'19px'} fontWeight={'bold'}>
-								10+
+								20+
 							</Typography>
 							<Typography variant="body1">
 								Projects Work
@@ -130,10 +130,10 @@ export default function Home() {
 						<Box className="flex gap-6" mt={2}>
 							<Box className="f-width">
 								<Typography variant="body1" fontSize={'19px'} fontWeight={'bold'}>
-									5+
+									10+
 								</Typography>
 								<Typography variant="body1">
-									Prokects Done
+									Projects Done
 								</Typography>
 							</Box>
 							<Box className="f-width">

@@ -11,12 +11,12 @@ const Footer = () => {
     return (
         <>
             <Grid container className="py-8">
-                <Grid size={{md:6, xs:12}}>
+                <Grid size={{md:7, xs:12}}>
                     <Typography variant="h4" color="white" gutterBottom>
                         Bharat Developer
                     </Typography>
                     <Typography variant="body1" color="#fff" gutterBottom>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
+                        Full-stack web developer with strong experience in building scalable web applications using modern frontend and backend technologies. Skilled in designing RESTful APIs, managing databases, and creating responsive, user-friendly interfaces.
                     </Typography>
                     <Box className="flex gap-4 justify-center md:justify-start">
                         <Facebook style={{width: "35px"}} />
@@ -24,7 +24,7 @@ const Footer = () => {
                         <Linkedin style={{width: "35px"}} />
                     </Box>
                 </Grid>
-                <Grid size={{md:6, xs:12}}>
+                <Grid size={{md:5, xs:12}}>
                     <Box className="flex md:justify-end justify-center gap-2" mb={1}>
                         <HomeOutlinedIcon color='white' />
                         <Typography variant="body1" color="#fff">
