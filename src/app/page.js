@@ -139,7 +139,7 @@ export default function Home() {
 							</Box>
 							<Box className="f-width">
 								<Typography variant="body1" fontSize={'19px'} fontWeight={'bold'}>
-									Contact Us
+									Contact Me
 								</Typography>
 								<Typography variant="body1">
 									bharatmanchanda13@gmail.com
@@ -268,7 +268,7 @@ export default function Home() {
 							/>
 							<TextField
 								fullWidth
-								label="Emai"
+								label="Email"
 								value={contactUs.email}
 								onChange={(e) => handleContactUsChange("email", e.target.value)}
 							/>
