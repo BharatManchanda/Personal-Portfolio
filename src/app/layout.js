@@ -1,5 +1,4 @@
 'use client';
-import localFont from 'next/font/local';
 import './globals.css';
 import { Box, IconButton, ThemeProvider, Typography } from '@mui/material';
 import { lightTheme } from './Theme';
@@ -41,6 +40,8 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
+      <title>Bharat Manchanda | Full Stack Developer</title>
+      <link rel="icon" type="image/png" href="/favicon.png" />
       <body
         className={`bg-${mode == 'dark' ? 'gray-900' : 'white'} text-${mode == 'dark' ? 'white' : 'black'}`}>
         <ToastContainer />
