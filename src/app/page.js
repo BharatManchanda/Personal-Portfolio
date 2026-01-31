@@ -232,7 +232,7 @@ export default function Home() {
 				</Grid>
 			</Box>
 
-			<Box id="contact">
+			<Box id="contact-me">
 				<MainHeading label={'Contact Me'} />
 				<Grid container my={4} spacing={3}>
 					<Grid size={{lg:6, xs:12}}>
@@ -240,7 +240,7 @@ export default function Home() {
 							Drop me a Message
 						</Typography>
 						<Typography variant="body1" mb={3}>
-							Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+							Feel free to reach out to me for any inquiries, collaborations, or just to say hi! I'll do my best to get back to you as soon as possible.
 						</Typography>
 						{contact.map((item, key) => (
 							<Box className="flex items-center gap-2 mb-2" key={key}>

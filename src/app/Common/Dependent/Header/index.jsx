@@ -33,7 +33,6 @@ export const Header = ({
     setMode
 }) => {
 	const pathname = usePathname();
-	console.log(pathname,"pathname");
 	
 	useEffect(() => {
 		const savedTheme = localStorage.getItem('theme');
@@ -58,6 +57,13 @@ export const Header = ({
 		setMode(mode => mode == "light" ? "dark" : "light");
 	}
 
+    const getHref = (menu) => {
+        if (menu === 'Home') return '/';
+        if (menu === 'Blog') return '/blog';
+        const sectionId = menu.toLowerCase().replaceAll(" ", "-");
+        return `/#${sectionId}`;
+    }
+
     return (
         <>
             <Box className="flex justify-between items-center">
@@ -68,10 +74,10 @@ export const Header = ({
 					<Dot style={{marginTop: "27px", marginLeft: "5px"}} />
 				</Box>
 				<Box display={{xs:"none", md:'block'}}>
-					{["Home", "Blog", "About", "Projects", "Contact Me"].map((menu, key) => (<MenuButton
+					{["Home", "About", "Projects", "Contact Me"].map((menu, key) => (<MenuButton
 						key={key}
 						component={Link}	
-						href={menu == "Home" ? "/" : menu.toLowerCase().replaceAll(" ","-")}
+						href={getHref(menu)}
 						mode={mode}
 						sx={{mr:2.5}}
 						size="small"
@@ -81,7 +87,7 @@ export const Header = ({
 					</MenuButton>))}
 				</Box>
 				<Box className="flex gap-2">
-					<Button variant="outlined" color="black" className="capitalize">
+					<Button variant="outlined" color="black" className="capitalize" component="a" href="/#contact-me">
 						Let's Chat
 					</Button>
 					<Tooltip title={mode == "dark" ? "Light Mode" : "Dark Mode"}>
