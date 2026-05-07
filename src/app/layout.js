@@ -56,7 +56,7 @@ export default function RootLayout({ children }) {
             </Box>
             <Box px={{ lg: 15, xs: 2 }} py={2} bgcolor={'#000'} className="flex justify-center">
               <Typography variant="body1" color="white">
-                Copyright @2023 All Right Reserved
+                Copyright @{new Date().getFullYear()} All Rights Reserved
               </Typography>
             </Box>
             {isVisible && (

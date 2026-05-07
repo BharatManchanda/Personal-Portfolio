@@ -3,7 +3,7 @@ import { Box, Button, Typography, Grid2 as Grid, TextField, Paper } from "@mui/m
 import CallMadeIcon from '@mui/icons-material/CallMade';
 import React, { useEffect, useState, useMemo } from "react";
 import Image from "next/image";
-import Profile from "../app/assets/images/profile.jpg"
+import Profile from "../app/assets/images/profile.jpeg"
 import { MainHeading } from "./Common/Singleton/MainHeading";
 import { contact, initContactUs, Languages, projects } from "./Constants";
 import Project from "./Components/Project";
@@ -18,7 +18,7 @@ export default function Home() {
 	const [contactUs, setContactUs] = useState({...initContactUs});
 	const [loading, setLoading] = useState(false);
 	const [readMore, setReadMore] = useState(false);
-	const textArray = ['Bharat Manchanda', "Laravel Developer", "React Developer", "PHP Developer", "Mern Stack Developer"];
+	const textArray = ['Bharat Manchanda', "React.js Developer", "Node.js Developer", "Mern Stack Developer"];
 	
 	const [textIndex, setTextIndex] = useState(0);
 	const [charIndex, setCharIndex] = useState(0);
@@ -94,7 +94,7 @@ export default function Home() {
 						</Typography>
 					</Typography>
 					<Typography variant="body1" mt={2}>
-						Designing & Developing full stack applications for over 2.5 years as a full stack developer.
+						Designing & Developing full stack applications for over 3 years as a full stack developer.
 					</Typography>
 
 					<Box className="flex gap-4" mt={2}>
