@@ -104,7 +104,7 @@ export default function Home() {
 							className="capitalize animate__fadeInDown"
 							size="large"
 							component="a"
-							href="./resume/bharat-resume.pdf"
+							href="/assets/resume/bharat-resume.pdf"
 							download
 							sx={{
 								// background: "linear-gradient(100deg, #ff0000, #0000ff)",
