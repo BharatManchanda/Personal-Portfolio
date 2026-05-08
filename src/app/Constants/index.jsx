@@ -1,7 +1,9 @@
-import Email from "../Common/Singleton/Icons/Email";
-import Location from "../Common/Singleton/Icons/Location";
-import Whatsapp from "../Common/Singleton/Icons/Whatsapp";
-
+// import Email from "../Common/Singleton/Icons/Email";
+// import Location from "../Common/Singleton/Icons/Location";
+// import Whatsapp from "../Common/Singleton/Icons/Whatsapp";
+import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
+import PhoneOutlinedIcon from '@mui/icons-material/PhoneOutlined';
+import MailOutlinedIcon from '@mui/icons-material/MailOutlined';
 export const projects = [
     {
         id: 1,
@@ -50,7 +52,7 @@ export const projects = [
 export const contact = [
     {
         id: 1,
-        icon: <Location />,
+        icon: <LocationOnOutlinedIcon color='primary' />,
         label: 'Urlana Kalan, Panipat - 132103',
         props:{
             href:"https://www.google.com/maps?q=37.7749,-122.4194",
@@ -59,7 +61,7 @@ export const contact = [
     },
     {
         id: 2,
-        icon: <Whatsapp />,
+        icon: <PhoneOutlinedIcon color='primary' />,
         label: '+91 7777-004907',
         props: {
             component:'a',
@@ -68,7 +70,7 @@ export const contact = [
     },
     {
         id: 3,
-        icon: <Email />,
+        icon: <MailOutlinedIcon color='primary' />,
         label: 'bharatmanchanda13@gmail.com',
         props:{}
     }

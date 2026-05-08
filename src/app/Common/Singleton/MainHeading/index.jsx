@@ -7,7 +7,7 @@ export const MainHeading = ({label}) => {
 	const theme = useTheme();
     return (<>
         <Box className="flex flex-col justify-center items-center">
-            <Typography fontSize={"40px"} fontWeight={'bold'} mt={4} mb={1}>
+            <Typography fontSize={"30px"} fontWeight={'bold'} mt={4} mb={1}>
                 {label}
             </Typography>
             <Typography className="rounded relative" sx={{
@@ -18,8 +18,9 @@ export const MainHeading = ({label}) => {
                     bottom: 0,
                     left: 0,
                     width: "100%",
-                    height: "10px",
-                    background: `linear-gradient(to right, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
+                    height: "5px",
+                    background: theme.palette.primary.main,
+                    // background: `linear-gradient(to right, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
                     borderRadius: "5px",
                 },
             }}></Typography>

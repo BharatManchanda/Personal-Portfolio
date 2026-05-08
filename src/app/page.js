@@ -11,13 +11,14 @@ import { api } from "./Constants/api";
 import { toast } from "react-toastify";
 import LoadingButton from '@mui/lab/LoadingButton';
 import SendIcon from '@mui/icons-material/Send';
+import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 
 export default function Home() {
 	const theme = useTheme();
 	const [contactUs, setContactUs] = useState({...initContactUs});
 	const [loading, setLoading] = useState(false);
 	const [readMore, setReadMore] = useState(false);
-	const textArray = ['Bharat Manchanda', "React.js Developer", "Node.js Developer", "Mern Stack Developer"];
+	const textArray = ['Bharat Manchanda', "React.js Developer", "Next.js Developer", "Node.js Developer", "Mern Stack Developer"];
 	
 	const [textIndex, setTextIndex] = useState(0);
 	const [charIndex, setCharIndex] = useState(0);
@@ -27,10 +28,11 @@ export default function Home() {
 	
 	const gradientBorderColor = useMemo(function () {
 		return {
-			borderImage: `linear-gradient(to right, ${theme.palette.primary.main}, ${theme.palette.secondary.main}) 1`,
-			background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
-			WebkitMask: `linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)`,
-			maskComposite: 'exclude',
+			// borderImage: `linear-gradient(to right, ${theme.palette.primary.main}, ${theme.palette.secondary.main}) 1`,
+			// background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
+			// WebkitMask: `linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)`,
+			// maskComposite: 'exclude',
+			border: `3px solid ${theme.palette.primary.main}`
 		}
 	}, []);
 
@@ -106,6 +108,7 @@ export default function Home() {
 							href="/assets/resume/bharat-resume.pdf"
 							download
 							sx={{
+								textTransform: "capitalize"
 								// background: "linear-gradient(100deg, #ff0000, #0000ff)",
 							}}
 						>
@@ -113,7 +116,7 @@ export default function Home() {
 						</Button>
 						<Button variant="text" color="black" className="capitalize" size="large" endIcon={<CallMadeIcon/>}
 							href="#projects"
-							sx={{ fontWeight: 'bold' }}>
+							sx={{ fontWeight: 'bold', textTransform: "capitalize" }}>
 							Projects
 						</Button>
 					</Box>
@@ -195,7 +198,7 @@ export default function Home() {
 						<Typography variant="body1" gutterBottom mb={2}>
 							I'm open to Job opportunities where I can contribute, learn and grow. If you have a good opportunity that matches my skills and experience then don't hesitate to contact me.
 						</Typography></>}
-						<Button variant="contained" onClick={() => setReadMore(!readMore)}>{readMore ? 'Read Less' : 'Read More'}</Button>
+						<Button sx={{ textTransform: "capitalize" }} endIcon={<KeyboardDoubleArrowRightIcon />} onClick={() => setReadMore(!readMore)}>{readMore ? 'Read Less' : 'Read More'}</Button>
 					</Grid>
 					<Grid size={{lg:6, xs:12}}>
 						<Typography variant="h5" gutterBottom fontWeight={'bold'}>

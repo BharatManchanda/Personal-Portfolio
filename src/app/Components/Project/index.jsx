@@ -24,9 +24,6 @@ const Project = ({project, count, gradientBorderColor}) => {
                 </Box>
             </Grid>}
             <Grid mb={3} size={{lg:6, xs:12}}>
-                {/* <Typography variant="h5" fontWeight={'bold'} gutterBottom>
-                    Project {count}
-                </Typography> */}
                 <Typography variant="h6" gutterBottom>
                     {title}
                 </Typography>
@@ -42,7 +39,8 @@ const Project = ({project, count, gradientBorderColor}) => {
                     }}
                     endIcon={<KeyboardDoubleArrowRightIcon />}
                 >
-                    Read More</Button>
+                    Read More
+                </Button>
             </Grid>
             {(count % 2 == 0 && BreakpointDetector() != 'sm') && <Grid size={{lg:6, xs:12}} mb={6}>
 				<Box className="flex justify-end relative lg:pl-[24px] h-[250px] w-full">

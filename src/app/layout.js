@@ -40,7 +40,7 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <title>Bharat Manchanda | Full Stack Developer</title>
+      <title>Bharat Manchanda | MERN Stack Developer</title>
       <link rel="icon" type="image/png" href="/favicon.png" />
       <body
         className={`bg-${mode == 'dark' ? 'gray-900' : 'white'} text-${mode == 'dark' ? 'white' : 'black'}`}>
