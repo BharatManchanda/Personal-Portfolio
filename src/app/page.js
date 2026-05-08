@@ -3,7 +3,6 @@ import { Box, Button, Typography, Grid2 as Grid, TextField, Paper } from "@mui/m
 import CallMadeIcon from '@mui/icons-material/CallMade';
 import React, { useEffect, useState, useMemo } from "react";
 import Image from "next/image";
-import Profile from "../app/assets/images/profile.jpeg"
 import { MainHeading } from "./Common/Singleton/MainHeading";
 import { contact, initContactUs, Languages, projects } from "./Constants";
 import Project from "./Components/Project";
@@ -160,7 +159,7 @@ export default function Home() {
 							top: '110px',
 						}}></Box>
 						<Image
-							src={Profile}
+							src={"/assets/profile.jpeg"}
 							className="w-40 h-40 rounded-full absolute object-center object-cover"
 							width={500}
 							height={500}
